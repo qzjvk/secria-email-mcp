@@ -1,0 +1,14 @@
+services:
+  secria-mcp:
+    build: .
+    container_name: secria-mcp
+    restart: unless-stopped
+    ports:
+      - "8787:8787"
+    environment:
+      PORT: 8787
+      MCP_API_KEY: ${MCP_API_KEY}
+      SECRIA_EMAIL: ${SECRIA_EMAIL}
+      SECRIA_PASSWORD: ${SECRIA_PASSWORD}
+      # Optional: point at a self-hosted gateway that speaks the Secria web app API.
+      # SECRIA_BASE_URL: https://app.secria.me
